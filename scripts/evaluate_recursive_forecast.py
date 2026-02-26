@@ -104,7 +104,6 @@ def update_lag_features(features, new_pm25_value, feature_names):
     
     return updated
 
-
 def recursive_forecast(model, initial_features, horizon, feature_names):
     """
     Generate recursive forecast for multiple steps ahead
@@ -411,3 +410,4 @@ for _, row in results_lr_df.iterrows():
 print("\n" + "=" * 80)
 print("✅ EVALUATION COMPLETE")
 print("=" * 80)
+
