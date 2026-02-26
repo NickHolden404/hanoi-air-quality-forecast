@@ -99,7 +99,7 @@ def update_lag_features(features, new_pm25_value, feature_names):
     # rolling_3h ≈ mean of last 3 hours
     updated[rolling_3h_idx] = (new_pm25_value + old_lag1 + updated[rolling_3h_idx]) / 3
     
-    # For rolling_24h, we approximate (in real implementation, keep full history)
+    # For rolling_24h we approximate
     updated[rolling_24h_idx] = (updated[rolling_24h_idx] * 23 + new_pm25_value) / 24
     
     return updated
@@ -407,11 +407,6 @@ print("\n✗ NOT RECOMMENDED:")
 for _, row in results_lr_df.iterrows():
     if row['RMSE'] >= 15:
         print(f"   • {row['Horizon']} hour(s): RMSE={row['RMSE']:.2f} µg/m³ (Too inaccurate)")
-
-print("\n💡 HONEST CLAIM:")
-print("   'Model reliably forecasts 1-3 hours ahead (RMSE < 10 µg/m³).")
-print("   Performance degrades significantly beyond 6 hours (RMSE > 12 µg/m³).")
-print("   24-hour forecasts are not recommended (RMSE ≈ 20+ µg/m³).'")
 
 print("\n" + "=" * 80)
 print("✅ EVALUATION COMPLETE")
