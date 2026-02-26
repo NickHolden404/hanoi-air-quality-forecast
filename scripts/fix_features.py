@@ -1,10 +1,6 @@
 import pandas as pd
 import numpy as np
 
-print("=" * 80)
-print("FIXING DATA LEAKAGE - REBUILDING FEATURES")
-print("=" * 80)
-
 # Load the merged dataset
 df = pd.read_csv('data/processed/hanoi_aqi_ml_dataset.csv')
 df['datetime'] = pd.to_datetime(df['datetime'])
@@ -58,7 +54,7 @@ print(f"   After: {len(df):,}")
 df.to_csv('data/processed/hanoi_aqi_ml_ready_fixed.csv', index=False)
 
 print("\n" + "=" * 80)
-print("✅ FEATURES FIXED - NO DATA LEAKAGE")
+print("FEATURES FIXED - NO DATA LEAKAGE")
 print("=" * 80)
 print(f"\n✓ Saved to: data/processed/hanoi_aqi_ml_ready_fixed.csv")
 print(f"✓ Records: {len(df):,}")
