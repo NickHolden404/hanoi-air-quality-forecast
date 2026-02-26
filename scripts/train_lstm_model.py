@@ -1,8 +1,3 @@
-"""
-Direct Multi-Horizon LSTM / GRU Forecasting
-Rolling-Origin Evaluation
-"""
-
 import pandas as pd
 import numpy as np
 import warnings
@@ -172,7 +167,8 @@ def main():
             rmse, mae, r2 = np.mean(results[model][h], axis=0)
             print(f"{h:>2}h → RMSE={rmse:.2f}, MAE={mae:.2f}, R²={r2:.3f}")
 
-    print("\n✅ DONE")
+    print("\n DONE")
 
 if __name__ == "__main__":
+
     main()
