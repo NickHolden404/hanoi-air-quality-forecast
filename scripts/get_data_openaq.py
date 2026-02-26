@@ -5,8 +5,8 @@ from datetime import datetime, timedelta
 client = OpenAQ(api_key='YOUR-API-KEY-HERE')
 
 # First, get the station details to find the PM2.5 sensor ID
-print("Getting station 2161292 details...")
-response = client.locations.get(2161292)
+print("Getting station 'station id' details...")
+response = client.locations.get('station id')
 location = response.results[0]  # Get the actual location from results
 
 pm25_sensor_id = None
