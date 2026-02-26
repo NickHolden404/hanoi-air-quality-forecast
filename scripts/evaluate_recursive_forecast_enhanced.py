@@ -1,10 +1,6 @@
 """
 Rolling-Origin Recursive PM2.5 Forecasting (FIXED)
 
-Fixes:
-- Handles categorical features correctly
-- Rolling-origin evaluation
-- Recursive multi-horizon forecasting
 """
 
 import pandas as pd
@@ -110,7 +106,7 @@ def main():
 
     df = engineer_features(df)
 
-    # 🔑 HANDLE CATEGORICAL VARIABLES (THE BUG FIX)
+    # HANDLE CATEGORICAL VARIABLES (THE BUG FIX)
     categorical_cols = df.select_dtypes(include=["object"]).columns.tolist()
     if categorical_cols:
         df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
@@ -188,4 +184,5 @@ def main():
             print(f"{h:<6}{rmse:<10.2f}{mae:<10.2f}{r2:<10.3f}")
 
 if __name__ == "__main__":
+
     main()
